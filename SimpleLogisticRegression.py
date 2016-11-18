@@ -4,7 +4,7 @@ from sklearn import datasets,linear_model
 #loading data
 iris = datasets.load_iris()
 
-# filtering, only target = 0 and 1 remained
+# removing one class in order to make binary classification, only target = 0 and 1 remained
 flt = np.logical_or(iris.target == 0 , iris.target == 1)
 iris.target = iris.target[flt]
 iris.data = iris.data[flt]
