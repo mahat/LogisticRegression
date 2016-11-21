@@ -2,7 +2,7 @@
 Logistic Regression Examples
 
 # Simple Logistic Regression
-- Conducting logistic regression on Titanic Survival Data
+- Conducting simple logistic regression on Titanic Survival Data
 - Using L2 normalization
 - Creating data frame with feature columns and coefficients and Intercept 
 - Showing probabilities of instances to be separated
@@ -11,7 +11,7 @@ Logistic Regression Examples
 # Lass Example
 - Conducting logistic regression on Smoking dataset
 - Using L1 normalization
-- Plotting coefficients absolute value map
+- Plotting map which shows absolute value of coefficients
 
 # Multi-Class Logistic regression
 - Using logistic regression multi-class problem
@@ -19,8 +19,8 @@ Logistic Regression Examples
 - Voting process showed
 
 # Cross Validation
-- Conduction Cross validation on logistic regression model in order to find optimal regularization parameter
-- GridSearch and LogisticRegressionCV are used
+- Using Cross validation on logistic regression model in order to find optimal regularization parameter
+- GridSearch and LogisticRegressionCV are used in Sklearn
 - Validating model using K-fold cross validation at the end
 - Comparing result between models with random selected regularization parameter and carefully selected regularization parameter
 
