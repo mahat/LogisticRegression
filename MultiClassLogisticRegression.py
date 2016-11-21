@@ -49,7 +49,7 @@ for i in classList:
             subModel.fit(subX, subY)
             modelList.append(subModel)
 
-# Process of voting for determining classes of test set
+# Counting of votes of models for determining classes of test set
 
 predVals = []
 for testIns in test_X:
