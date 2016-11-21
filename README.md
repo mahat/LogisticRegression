@@ -18,7 +18,6 @@ Logistic Regression Examples
 - OneVsAll and OneVsOne multi-class strategies are used and showed
 - Voting process showed
 
-
 # Cross Validation
 - Conduction Cross validation on logistic regression model in order to find optimal regularization parameter
 - GridSearch and LogisticRegressionCV are used
