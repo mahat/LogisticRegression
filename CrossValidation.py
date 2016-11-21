@@ -15,7 +15,7 @@ import Utils
 
 # sperate training and test
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3)
-# creating model
+# creating model with random regularization param
 reg = pow(10, randrange(-4, 4))
 
 model = linear_model.LogisticRegression(penalty='l2', C=reg)

@@ -53,4 +53,7 @@ for val in C:
     plots.set_title("C = %.5f, Sparsity Ratio = %.4f, Acc = %.4f" % (val, sparsityRatio, accuracy))
     plotIndex = plotIndex + 1
 
+
+# lighter pixels means weights on variables are close to zero,
+# darker pixels means absolute value of weights are bigger
 plt.show()
