@@ -1,41 +1,39 @@
 import numpy as np
-from sklearn import datasets,linear_model
+import pandas as pd
+from sklearn import datasets,linear_model, metrics
 
 #loading data
-iris = datasets.load_iris()
+from sklearn.model_selection import train_test_split
 
-# removing one class in order to make binary classification, only target = 0 and 1 remained
-flt = np.logical_or(iris.target == 0 , iris.target == 1)
-iris.target = iris.target[flt]
-iris.data = iris.data[flt]
+import Utils
+
+[X, Y,colNames] = Utils.getTitanicDataSet()
 
 # sperate training and test
-msk = np.random.rand(len(iris.target)) < 0.8
-train_X = iris.data[msk]
-train_Y = iris.target[msk]
-
-test_X = iris.data[~msk]
-test_Y = iris.target[~msk]
-
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3)
 # creating model
-model = linear_model.LogisticRegression(C = 1.0)
-model.fit(train_X,train_Y)
+model = linear_model.LogisticRegression(C = 1.0, penalty='l2')
+model.fit(X_train,y_train)
 
 
 # predict test
-predVals = model.predict(test_X)
+predicted = model.predict(X_test)
 
 # checking acc
-totalNum = len(test_Y)
-truePredCount = sum(np.equal(predVals,test_Y))
-print 'Acc: %f' % ( float(truePredCount) / float(totalNum))
+print 'Acc: %f' % metrics.accuracy_score(y_test, predicted)
 
 # printing probabilities of instances in test
-probs = model.predict_proba(test_X)
+probs = model.predict_proba(X_test)
 print 'probabilities of instances to belong a class'
 print '-------------------------'
 print '| class #1  | class #2  | pred  | true |'
 print '----------------------------------------'
-for i in xrange(len(test_Y)):
+for i in xrange(len(y_test)):
     p = probs[i]
-    print '| %.6f  | %.6f  |   %d   |  %d   |' % (p[0],p[1],predVals[i],test_Y[i])
+    print '| %.6f  | %.6f  |   %d   |  %d   |' % (p[0],p[1],predicted[i],y_test[i])
+
+# examine the coefficients
+print '---- Checking Coefs ----'
+colNames.values[0] = 'Intercept'
+coefDf = pd.DataFrame(zip(colNames, np.transpose(np.append(model.intercept_,model.coef_))))
+print coefDf
