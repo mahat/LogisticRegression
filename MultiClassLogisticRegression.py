@@ -1,4 +1,7 @@
-import matplotlib.pyplot as plt
+'''
+Author: mahat
+'''
+
 from sklearn import linear_model, datasets, metrics
 import numpy as np
 

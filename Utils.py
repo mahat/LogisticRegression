@@ -1,3 +1,7 @@
+'''
+Author: mahat
+'''
+
 import pandas as pd
 import numpy as np
 # getting titanic dataset
