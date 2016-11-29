@@ -8,7 +8,7 @@ Logistic Regression Examples
 - Showing probabilities of instances to be separated
 - Showing how to calculate metrics of model
 
-# Lass Example
+# Lasso Regression Example
 - Conducting logistic regression on Smoking dataset
 - Using L1 normalization
 - Plotting map which shows absolute value of coefficients
